@@ -1,0 +1,75 @@
+﻿@model IEnumerable<GoldDiggerWebApi.Models.ClassApiResponds>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<style>
+    :root {
+        font-family: 'Ubuntu', sans-serif;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-height: 100vh;
+        max-width: 100vw;
+    }
+
+    table {
+        margin-top: 5rem;
+        background-color: hsl(0, 0%, 90%);
+        width: 60%;
+    }
+
+    thead {
+        background-color: hsl(0, 0%, 85%);
+    }
+
+    tbody tr {
+        background-color: hsl(0, 0%, 80%);
+    }
+
+        tbody tr:nth-child(even) {
+            background-color: hsl(0, 0%, 70%);
+        }
+</style>
+
+<h1>Gold Digger Prices</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Price in DKK
+            </th>
+            <th>
+                Price in EUR
+            </th>
+            <th>
+                Price in USD
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.metalName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.priceDkkPerKg)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.priceEurPerKg)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.priceUsdPerKg)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
